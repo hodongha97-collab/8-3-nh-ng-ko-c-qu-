@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 8/3 – Gửi tặng người đặc biệt 🌸</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & BIẾN ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pastel-pink: #ffe4ec;
+            --soft-rose: #fcc2d7;
+            --warm-sun: #fff2b5;
+            --text-brown: #543b47;
+            --shadow-pink: rgba(250, 150, 180, 0.3);
+            --gradient-sky: linear-gradient(145deg, #ffe9f2 0%, #ffd9e8 100%);
+            --font-hand: 'Dancing Script', cursive;
+            --font-sans: 'Quicksand', sans-serif;
+            --font-quote: 'Playfair Display', serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffddee 0%, #ffe4f0 100%);
+            font-family: var(--font-sans);
+            color: var(--text-brown);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Nếu bạn có ảnh nền muốn dùng, hãy bỏ comment dòng dưới và thay tên file */
+        /*
+        body {
+            background-image: url("ten-file-anh-cua-ban.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        */
+
+        /* Lớp phủ hoa nổi */
+        .floating-flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            color: rgba(255, 200, 220, 0.5);
+            font-size: 2.5rem;
+            animation: floatAround 18s infinite linear;
+            user-select: none;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translateY(110vh) rotate(0deg) scale(0.6); opacity: 0.8; }
+            100% { transform: translateY(-20vh) rotate(720deg) scale(1.2); opacity: 0; }
+        }
+
+        /* Khung chính */
+        .main-card {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 50px 10px 50px 10px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 30px 50px var(--shadow-pink), 0 10px 20px rgba(0,0,0,0.05);
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ===== TIÊU ĐỀ ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-hand);
+            font-size: clamp(2.8rem, 10vw, 5rem);
+            font-weight: 700;
+            color: #bc5880;
+            text-shadow: 4px 4px 0 #ffe2eb, 6px 6px 0 rgba(250, 160, 180, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero h1 i {
+            color: #ffb347;
+            font-size: 0.9em;
+            margin: 0 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 1.5rem;
+            margin-top: 0.3rem;
+            background: linear-gradient(145deg, #dd7a9e, #b65378);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+        }
+
+        /* ===== TRÍCH DẪN ===== */
+        .quote-block {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .quote-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 1.8rem 2.2rem;
+            border-radius: 30px 5px 30px 5px;
+            box-shadow: 12px 12px 0 #fec8d5;
+            border-left: 12px solid #feb0c0;
+            transition: 0.3s;
+        }
+
+        .quote-item:nth-child(even) {
+            border-left-color: #fcca87;
+            box-shadow: 12px 12px 0 #ffe0a3;
+        }
+
+        .quote-item i {
+            font-size: 2.2rem;
+            color: #fda5bd;
+            opacity: 0.5;
+            margin-right: 0.6rem;
+            vertical-align: middle;
+        }
+
+        .quote-text {
+            font-family: var(--font-quote);
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #4e2c3b;
+            display: inline;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 0.8rem;
+            font-weight: 600;
+            color: #b76081;
+            text-align: right;
+        }
+
+        .sun-quote .fa-sun {
+            color: #f7b731;
+            animation: rotateSun 8s infinite linear;
+        }
+
+        @keyframes rotateSun {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== LỜI NHẮN RIÊNG ===== */
+        .personal-message {
+            background: #ffecf0;
+            border-radius: 70px 10px 70px 10px;
+            padding: 2.5rem 2rem;
+            margin: 3rem 0;
+            border: 4px double #fdafc0;
+            box-shadow: inset 0 0 30px #ffdae4, 0 20px 25px #fec7d6;
+            position: relative;
+        }
+
+        .personal-message h2 {
+            font-family: var(--font-hand);
+            font-size: 2.8rem;
+            color: #ac557b;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .personal-message h2 i {
+            font-size: 2.5rem;
+            color: #f0a55a;
+            margin: 0 0.5rem;
+        }
+
+        .personal-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.8rem;
+            border-radius: 30px;
+            line-height: 1.8;
+            text-align: center;
+            color: #5c3a47;
+            box-shadow: 0 5px 10px #feb6c5;
+        }
+
+        .personal-text p {
+            margin-bottom: 1rem;
+        }
+
+        .personal-text .small-note {
+            font-size: 1.2rem;
+            color: #af6283;
+            font-style: italic;
+        }
+
+        /* ===== QUÀ TẶNG ===== */
+        .gift-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0 2rem;
+        }
+
+        .gift-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #ffb3c6;
+            padding: 1rem 2.8rem;
+            font-size: 2rem;
+            font-family: var(--font-hand);
+            font-weight: 600;
+            border-radius: 60px 10px 60px 10px;
+            box-shadow: 0 8px 0 #b36581;
+            color: #3b1f2b;
+            text-decoration: none;
+            transition: 0.1s ease;
+            border: 3px solid white;
+        }
+
+        .gift-link:active {
+            transform: translateY(8px);
+            box-shadow: 0 0 0 #b36581;
+        }
+
+        .gift-link i {
+            font-size: 2.5rem;
+        }
+
+        .gift-note {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            background: #fff1b0;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            color: #7a4c5f;
+            font-weight: 500;
+            border: 2px dashed #ffa5b9;
+        }
+
+        /* ===== BÌNH LUẬN (trang trí) ===== */
+        .comment-section {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 2px solid #feb6c5;
+        }
+
+        .comment-section h3 {
+            font-size: 1.8rem;
+            color: #b45a7a;
+            font-weight: 500;
+            border-bottom: 2px dotted #f598b2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-placeholder {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #9d7083;
+        }
+
+        .comment-placeholder i {
+            font-size: 2rem;
+            background: #ffe2ec;
+            padding: 0.7rem;
+            border-radius: 50%;
+        }
+
+        .comment-placeholder span {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #af7b8d;
+        }
+
+        .heart-row {
+            font-size: 2rem;
+            color: #e45f7a;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            35% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            55% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .main-card { padding: 1.5rem; }
+            .quote-text { font-size: 1.3rem; }
+            .personal-text { font-size: 1.2rem; }
+            .gift-link { font-size: 1.6rem; padding: 0.8rem 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hoa nổi nền -->
+    <div class="floating-flowers" id="flowerContainer"></div>
+
+    <div class="main-card">
+        <!-- HERO: Happy Women's Day 8/3 + mặt trời -->
+        <div class="hero">
+            <h1>
+                <i class="fas fa-sun"></i> Happy Women's Day 8/3 <i class="fas fa-sun"></i>
+            </h1>
+            <div class="sub">“Cũng như ánh mặt trời ấm áp”</div>
+        </div>
+
+        <!-- Các câu trích dẫn -->
+        <div class="quote-block">
+            <div class="quote-item sun-quote">
+                <i class="fas fa-sun"></i>
+                <span class="quote-text">“Cũng như ánh mặt trời ấm áp”</span>
+                <span class="quote-author">— Dành tặng pl</span>
+            </div>
+            <div class="quote-item">
+                <i class="fas fa-cloud-rain"></i>
+                <span class="quote-text">“Luôn trở lại sau những ngày mưa tan”</span>
+                <span class="quote-author">— Dành tặng pl, lướt xuống dưới nha</span>
+            </div>
+        </div>
+
+        <!-- LỜI NHẮN CÁ NHÂN CHO pl -->
+        <div class="personal-message">
+            <h2>
+                <i class="fas fa-crown"></i> Gửi pl <i class="fas fa-crown"></i>
+            </h2>
+            <div class="personal-text">
+                <p>
+                    “Những lời chúc chân thành nhất: <br>
+                    Luôn xinh đẹp, hạnh phúc và mãi là một nửa rạng rỡ của thế giới này.”
+                </p>
+                <p class="small-note">
+                    <i class="fas fa-heart" style="color:#e6769a;"></i>  8/3 vui vẻ nha, luôn xinh đẹp và hạnh phúc nhé.  <i class="fas fa-heart" style="color:#e6769a;"></i>
+                </p>
+            </div>
+        </div>
+
+        <!-- Khu vực quà tặng & link -->
+        <div class="gift-box">
+            <a href="https://womendaypro.onrender.com" target="_blank" class="gift-link" rel="noopener noreferrer">
+                <i class="fas fa-gift"></i> Day Gift - Tặng quà
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <div class="gift-note">
+                <i class="fas fa-star"></i> Happy Women's Day, pl!  <i class="fas fa-star"></i>
+            </div>
+            <p style="margin-top:1rem; font-size:1.1rem;">(nhấn hay không nhấn cũng không có quà =))</p>
+        </div>
+
+        <!-- Phần bình luận trang trí (có thể bỏ) -->
+        <div class="comment-section">
+            <h3><i class="far fa-comment-dots"></i> Lời nhắn nhỏ</h3>
+            <div class="comment-placeholder">
+                <i class="fas fa-heart"></i>
+                <span>pl à, trang này chỉ dành riêng cho bạn thôi đó!</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="heart-row">
+                <i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i>
+            </div>
+            <p>© 8/3/2026 - Dành riêng cho pl, một người đặc biệt</p>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // 1. Tạo hoa nổi
+            const flowerContainer = document.getElementById('flowerContainer');
+            const flowers = ['🌸', '🌼', '🌺', '🌷', '🌹', '🌻', '🌸', '🌸', '🌼', '🌷', '💐'];
+            const flowerCount = 55;
+
+            for (let i = 0; i < flowerCount; i++) {
+                const flowerDiv = document.createElement('div');
+                flowerDiv.classList.add('flower');
+                const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+                flowerDiv.textContent = randomFlower;
+                const left = Math.random() * 100;
+                const size = 0.8 + Math.random() * 2.5;
+                const duration = 12 + Math.random() * 25;
+                const delay = Math.random() * 10;
+                flowerDiv.style.left = left + '%';
+                flowerDiv.style.fontSize = size + 'rem';
+                flowerDiv.style.animationDuration = duration + 's';
+                flowerDiv.style.animationDelay = delay + 's';
+                flowerDiv.style.opacity = 0.4 + Math.random() * 0.5;
+                flowerContainer.appendChild(flowerDiv);
+            }
+
+            // 2. Hiệu ứng hover cho các khối quote
+            const quoteItems = document.querySelectorAll('.quote-item');
+            quoteItems.forEach((item) => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'scale(1.02) translateY(-5px)';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'scale(1) translateY(0)';
+                });
+            });
+
+            // 3. Thông báo khi click vào link quà
+            const giftLink = document.querySelector('.gift-link');
+            if (giftLink) {
+                giftLink.addEventListener('click', (e) => {
+                    console.log('🌸 pl ơi, chúc bạn có một ngày 8/3 thật vui vẻ!');
+                });
+            }
+
+            // 4. Vài dòng console cho vui
+            console.log('🌸 Trang web dành tặng PL <3');
+            console.log('🌸 Số hoa nổi: ' + flowerCount);
+            console.log('🌸 pl là đặc biệt!');
+        })();
+    </script>
+</body>
+</html>
